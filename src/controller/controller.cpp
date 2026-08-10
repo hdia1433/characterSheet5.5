@@ -12,7 +12,7 @@ Controller::Controller():window(sf::VideoMode({600,600}), "Character Controller"
 
 void Controller::start()
 {
-    while(window.isOpen())
+    while(Globals::running && window.isOpen())
     {
         while(const std::optional event = window.pollEvent())
         {
@@ -43,7 +43,9 @@ void Controller::start()
         ImGui::SetNextWindowPos(ImVec2(0.f, 0.f), ImGuiCond_Always);
         ImGui::SetNextWindowSize(ImVec2(600.f, 600.f), ImGuiCond_Always);
 
-        if(ImGui::Begin("##Window", nullptr, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoTitleBar))
+        ImGuiWindowFlags flags = ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoTitleBar;
+
+        if(ImGui::Begin("##Window", nullptr, flags))
         {
             scenes[(int)Globals::currentScene]->render();
         }

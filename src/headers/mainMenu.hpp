@@ -4,6 +4,9 @@
 
 class MainMenu: public Scene
 {
+private:
+    bool warningOpen;
+
 public:
     MainMenu();
 

@@ -910,8 +910,7 @@ bin-int/Debug/gobals.o: \
   /opt/homebrew/Cellar/llvm/22.1.8/lib/clang/22/include/__float_header_macro.h \
   /opt/homebrew/Cellar/llvm/22.1.8/lib/clang/22/include/__float_float.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/SDKSettings.json \
-  src/controller/gobals.cpp src/headers/globals.hpp \
-  src/headers/sceneName.hpp
+  src/model/gobals.cpp src/headers/globals.hpp src/headers/sceneName.hpp
 /opt/homebrew/include/SFML/Graphics.hpp:
 /opt/homebrew/include/SFML/Graphics/BlendMode.hpp:
 /opt/homebrew/include/SFML/Graphics/Export.hpp:
@@ -1822,6 +1821,6 @@ bin-int/Debug/gobals.o: \
 /opt/homebrew/Cellar/llvm/22.1.8/lib/clang/22/include/__float_header_macro.h:
 /opt/homebrew/Cellar/llvm/22.1.8/lib/clang/22/include/__float_float.h:
 /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/SDKSettings.json:
-src/controller/gobals.cpp:
+src/model/gobals.cpp:
 src/headers/globals.hpp:
 src/headers/sceneName.hpp:

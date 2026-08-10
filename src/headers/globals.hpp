@@ -6,4 +6,5 @@ class Globals
 {
 public:
     static SceneName currentScene;
+    static bool running;
 };

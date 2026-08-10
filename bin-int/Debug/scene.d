@@ -910,7 +910,7 @@ bin-int/Debug/scene.o: \
   /opt/homebrew/Cellar/llvm/22.1.8/lib/clang/22/include/__float_header_macro.h \
   /opt/homebrew/Cellar/llvm/22.1.8/lib/clang/22/include/__float_float.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/SDKSettings.json \
-  src/controller/scene.cpp src/headers/scene.hpp
+  src/model/scene.cpp src/headers/scene.hpp
 /opt/homebrew/include/SFML/Graphics.hpp:
 /opt/homebrew/include/SFML/Graphics/BlendMode.hpp:
 /opt/homebrew/include/SFML/Graphics/Export.hpp:
@@ -1821,5 +1821,5 @@ bin-int/Debug/scene.o: \
 /opt/homebrew/Cellar/llvm/22.1.8/lib/clang/22/include/__float_header_macro.h:
 /opt/homebrew/Cellar/llvm/22.1.8/lib/clang/22/include/__float_float.h:
 /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/SDKSettings.json:
-src/controller/scene.cpp:
+src/model/scene.cpp:
 src/headers/scene.hpp:

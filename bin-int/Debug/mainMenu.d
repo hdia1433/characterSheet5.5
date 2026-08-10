@@ -910,8 +910,8 @@ bin-int/Debug/mainMenu.o: \
   /opt/homebrew/Cellar/llvm/22.1.8/lib/clang/22/include/__float_header_macro.h \
   /opt/homebrew/Cellar/llvm/22.1.8/lib/clang/22/include/__float_float.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/SDKSettings.json \
-  src/controller/mainMenu.cpp src/headers/mainMenu.hpp \
-  src/headers/scene.hpp
+  src/model/mainMenu.cpp src/headers/mainMenu.hpp src/headers/scene.hpp \
+  src/headers/globals.hpp src/headers/sceneName.hpp
 /opt/homebrew/include/SFML/Graphics.hpp:
 /opt/homebrew/include/SFML/Graphics/BlendMode.hpp:
 /opt/homebrew/include/SFML/Graphics/Export.hpp:
@@ -1822,6 +1822,8 @@ bin-int/Debug/mainMenu.o: \
 /opt/homebrew/Cellar/llvm/22.1.8/lib/clang/22/include/__float_header_macro.h:
 /opt/homebrew/Cellar/llvm/22.1.8/lib/clang/22/include/__float_float.h:
 /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/SDKSettings.json:
-src/controller/mainMenu.cpp:
+src/model/mainMenu.cpp:
 src/headers/mainMenu.hpp:
 src/headers/scene.hpp:
+src/headers/globals.hpp:
+src/headers/sceneName.hpp:

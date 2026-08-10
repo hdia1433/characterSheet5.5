@@ -910,84 +910,8 @@ bin-int/Debug/mainMenu1.o: \
   /opt/homebrew/Cellar/llvm/22.1.8/lib/clang/22/include/__float_header_macro.h \
   /opt/homebrew/Cellar/llvm/22.1.8/lib/clang/22/include/__float_float.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/SDKSettings.json \
-  src/ftxui/mainMenu.cpp src/ftxui/mainMenu.hpp src/ftxui/scene.hpp \
-  /opt/homebrew/include/ftxui/component/component.hpp \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/functional \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/binary_negate.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/bind.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/binder1st.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/binder2nd.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/mem_fn.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/mem_fun_ref.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/pointer_to_binary_function.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/pointer_to_unary_function.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/unary_negate.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/function.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__type_traits/strip_signature.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/boyer_moore_searcher.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/default_searcher.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__algorithm/search.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/not_fn.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/bind_back.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/bind_front.h \
-  /opt/homebrew/include/ftxui/util/warn_windows_macro.hpp \
-  /opt/homebrew/include/ftxui/component/component_base.hpp \
-  /opt/homebrew/include/ftxui/component/captured_mouse.hpp \
-  /opt/homebrew/include/ftxui/util/export.hpp \
-  /opt/homebrew/include/ftxui/dom/elements.hpp \
-  /opt/homebrew/include/ftxui/dom/canvas.hpp \
-  /opt/homebrew/include/ftxui/screen/color.hpp \
-  /opt/homebrew/include/ftxui/screen/surface.hpp \
-  /opt/homebrew/include/ftxui/screen/box.hpp \
-  /opt/homebrew/include/ftxui/screen/cell.hpp \
-  /opt/homebrew/include/ftxui/dom/direction.hpp \
-  /opt/homebrew/include/ftxui/dom/flexbox_config.hpp \
-  /opt/homebrew/include/ftxui/dom/linear_gradient.hpp \
-  /opt/homebrew/include/ftxui/dom/node.hpp \
-  /opt/homebrew/include/ftxui/dom/requirement.hpp \
-  /opt/homebrew/include/ftxui/screen/screen.hpp \
-  /opt/homebrew/include/ftxui/screen/terminal.hpp \
-  /opt/homebrew/include/ftxui/dom/selection.hpp \
-  /opt/homebrew/include/ftxui/util/ref.hpp \
-  /opt/homebrew/include/ftxui/screen/string.hpp \
-  /opt/homebrew/include/ftxui/dom/take_any_args.hpp \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/deque \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__algorithm/ranges_copy_n.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/queue \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__algorithm/make_heap.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__algorithm/push_heap.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__algorithm/sift_down.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__algorithm/pop_heap.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/stack \
-  /opt/homebrew/include/ftxui/dom/deprecated.hpp \
-  /opt/homebrew/include/ftxui/component/component_options.hpp \
-  /opt/homebrew/include/ftxui/component/animation.hpp \
-  src/ftxui/global.hpp src/ftxui/sceneName.hpp \
-  /opt/homebrew/include/ftxui/component/screen_interactive.hpp \
-  /opt/homebrew/include/ftxui/component/app.hpp \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/atomic \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__atomic/aliases.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__atomic/atomic_lock_free.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__atomic/atomic_flag.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__thread/support.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__thread/support/pthread.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__chrono/convert_to_timespec.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include/pthread.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include/pthread/sched.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include/pthread/pthread_impl.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include/pthread/qos.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include/sys/qos.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include/sys/_types/_mach_port_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include/sched.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__atomic/atomic_init.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__atomic/atomic_sync_timed.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__thread/timed_backoff_policy.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__atomic/fence.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__atomic/kill_dependency.h \
-  /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__atomic/atomic_ref.h \
-  /opt/homebrew/include/ftxui/component/task.hpp \
-  /opt/homebrew/include/ftxui/component/event.hpp \
-  /opt/homebrew/include/ftxui/component/mouse.hpp
+  src/model/mainMenu.cpp src/headers/mainMenu.hpp src/headers/scene.hpp \
+  src/headers/globals.hpp src/headers/sceneName.hpp
 /opt/homebrew/include/SFML/Graphics.hpp:
 /opt/homebrew/include/SFML/Graphics/BlendMode.hpp:
 /opt/homebrew/include/SFML/Graphics/Export.hpp:
@@ -1898,84 +1822,8 @@ bin-int/Debug/mainMenu1.o: \
 /opt/homebrew/Cellar/llvm/22.1.8/lib/clang/22/include/__float_header_macro.h:
 /opt/homebrew/Cellar/llvm/22.1.8/lib/clang/22/include/__float_float.h:
 /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/SDKSettings.json:
-src/ftxui/mainMenu.cpp:
-src/ftxui/mainMenu.hpp:
-src/ftxui/scene.hpp:
-/opt/homebrew/include/ftxui/component/component.hpp:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/functional:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/binary_negate.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/bind.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/binder1st.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/binder2nd.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/mem_fn.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/mem_fun_ref.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/pointer_to_binary_function.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/pointer_to_unary_function.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/unary_negate.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/function.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__type_traits/strip_signature.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/boyer_moore_searcher.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/default_searcher.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__algorithm/search.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/not_fn.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/bind_back.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__functional/bind_front.h:
-/opt/homebrew/include/ftxui/util/warn_windows_macro.hpp:
-/opt/homebrew/include/ftxui/component/component_base.hpp:
-/opt/homebrew/include/ftxui/component/captured_mouse.hpp:
-/opt/homebrew/include/ftxui/util/export.hpp:
-/opt/homebrew/include/ftxui/dom/elements.hpp:
-/opt/homebrew/include/ftxui/dom/canvas.hpp:
-/opt/homebrew/include/ftxui/screen/color.hpp:
-/opt/homebrew/include/ftxui/screen/surface.hpp:
-/opt/homebrew/include/ftxui/screen/box.hpp:
-/opt/homebrew/include/ftxui/screen/cell.hpp:
-/opt/homebrew/include/ftxui/dom/direction.hpp:
-/opt/homebrew/include/ftxui/dom/flexbox_config.hpp:
-/opt/homebrew/include/ftxui/dom/linear_gradient.hpp:
-/opt/homebrew/include/ftxui/dom/node.hpp:
-/opt/homebrew/include/ftxui/dom/requirement.hpp:
-/opt/homebrew/include/ftxui/screen/screen.hpp:
-/opt/homebrew/include/ftxui/screen/terminal.hpp:
-/opt/homebrew/include/ftxui/dom/selection.hpp:
-/opt/homebrew/include/ftxui/util/ref.hpp:
-/opt/homebrew/include/ftxui/screen/string.hpp:
-/opt/homebrew/include/ftxui/dom/take_any_args.hpp:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/deque:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__algorithm/ranges_copy_n.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/queue:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__algorithm/make_heap.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__algorithm/push_heap.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__algorithm/sift_down.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__algorithm/pop_heap.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/stack:
-/opt/homebrew/include/ftxui/dom/deprecated.hpp:
-/opt/homebrew/include/ftxui/component/component_options.hpp:
-/opt/homebrew/include/ftxui/component/animation.hpp:
-src/ftxui/global.hpp:
-src/ftxui/sceneName.hpp:
-/opt/homebrew/include/ftxui/component/screen_interactive.hpp:
-/opt/homebrew/include/ftxui/component/app.hpp:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/atomic:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__atomic/aliases.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__atomic/atomic_lock_free.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__atomic/atomic_flag.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__thread/support.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__thread/support/pthread.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__chrono/convert_to_timespec.h:
-/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include/pthread.h:
-/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include/pthread/sched.h:
-/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include/pthread/pthread_impl.h:
-/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include/pthread/qos.h:
-/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include/sys/qos.h:
-/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include/sys/_types/_mach_port_t.h:
-/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include/sched.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__atomic/atomic_init.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__atomic/atomic_sync_timed.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__thread/timed_backoff_policy.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__atomic/fence.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__atomic/kill_dependency.h:
-/opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__atomic/atomic_ref.h:
-/opt/homebrew/include/ftxui/component/task.hpp:
-/opt/homebrew/include/ftxui/component/event.hpp:
-/opt/homebrew/include/ftxui/component/mouse.hpp:
+src/model/mainMenu.cpp:
+src/headers/mainMenu.hpp:
+src/headers/scene.hpp:
+src/headers/globals.hpp:
+src/headers/sceneName.hpp:

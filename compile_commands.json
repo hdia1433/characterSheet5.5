@@ -271,13 +271,13 @@
    "-std=c++23",
    "-std=c++23",
    "-o",
-   "bin-int/Debug/mainMenu.o",
+   "bin-int/Debug/gobals.o",
    "-MF",
-   "bin-int/Debug/mainMenu.d",
+   "bin-int/Debug/gobals.d",
    "-c",
-   "src/controller/mainMenu.cpp"
+   "src/model/gobals.cpp"
   ],
-  "file": "src/controller/mainMenu.cpp"
+  "file": "src/model/gobals.cpp"
  },
  {
   "directory": "/Users/heberdiamond/Library/Mobile Documents/com~apple~Numbers/Documents/characterSheet5.5",
@@ -299,13 +299,13 @@
    "-std=c++23",
    "-std=c++23",
    "-o",
-   "bin-int/Debug/gobals.o",
+   "bin-int/Debug/mainMenu.o",
    "-MF",
-   "bin-int/Debug/gobals.d",
+   "bin-int/Debug/mainMenu.d",
    "-c",
-   "src/controller/gobals.cpp"
+   "src/model/mainMenu.cpp"
   ],
-  "file": "src/controller/gobals.cpp"
+  "file": "src/model/mainMenu.cpp"
  },
  {
   "directory": "/Users/heberdiamond/Library/Mobile Documents/com~apple~Numbers/Documents/characterSheet5.5",
@@ -331,8 +331,8 @@
    "-MF",
    "bin-int/Debug/scene.d",
    "-c",
-   "src/controller/scene.cpp"
+   "src/model/scene.cpp"
   ],
-  "file": "src/controller/scene.cpp"
+  "file": "src/model/scene.cpp"
  }
 ]
