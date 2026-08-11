@@ -7,4 +7,5 @@ class Globals
 public:
     static SceneName currentScene;
     static bool running;
+    static bool popupOpen;
 };

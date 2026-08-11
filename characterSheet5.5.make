@@ -31,7 +31,7 @@ RESCOMP = windres
 PCH = src/headers/pch.hpp
 PCH_PLACEHOLDER = $(OBJDIR)/$(notdir $(PCH))
 GCH = $(PCH_PLACEHOLDER).gch
-INCLUDES += -Isrc/headers -Iexternals/imgui-sfml -Iexternals/imgui -I/opt/homebrew/include -I/opt/homebrew/include/SFML
+INCLUDES += -Isrc/headers -Isrc/enums -Iexternals/imgui-sfml -Iexternals/imgui -I/opt/homebrew/include -I/opt/homebrew/include/SFML
 FORCE_INCLUDE +=
 ALL_CPPFLAGS += $(CPPFLAGS) -MD -MP $(DEFINES) $(INCLUDES)
 ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
@@ -78,6 +78,7 @@ GENERATED :=
 OBJECTS :=
 
 GENERATED += $(OBJDIR)/controller.o
+GENERATED += $(OBJDIR)/createChar.o
 GENERATED += $(OBJDIR)/gobals.o
 GENERATED += $(OBJDIR)/imgui-SFML.o
 GENERATED += $(OBJDIR)/imgui.o
@@ -90,6 +91,7 @@ GENERATED += $(OBJDIR)/mainMenu.o
 GENERATED += $(OBJDIR)/pch.o
 GENERATED += $(OBJDIR)/scene.o
 OBJECTS += $(OBJDIR)/controller.o
+OBJECTS += $(OBJDIR)/createChar.o
 OBJECTS += $(OBJDIR)/gobals.o
 OBJECTS += $(OBJDIR)/imgui-SFML.o
 OBJECTS += $(OBJDIR)/imgui.o
@@ -189,6 +191,9 @@ $(OBJDIR)/main.o: src/controller/main.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/pch.o: src/controller/pch.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/createChar.o: src/model/createChar.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/gobals.o: src/model/gobals.cpp

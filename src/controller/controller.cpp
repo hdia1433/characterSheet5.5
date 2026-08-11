@@ -1,12 +1,24 @@
 #include "controller.hpp"
 #include "mainMenu.hpp"
+#include "createChar.hpp"
 #include "globals.hpp"
 
-Controller::Controller():window(sf::VideoMode({600,600}), "Character Controller", sf::Style::Titlebar | sf::Style::Close), scenes({new MainMenu})
+Controller::Controller():window(sf::VideoMode({600,600}), "Character Controller", sf::Style::Titlebar | sf::Style::Close), scenes({
+        new MainMenu,
+        new CreateChar
+        })
 {
     if(!ImGui::SFML::Init(window))
     {
         throw std::runtime_error("Couldn't init window");
+    }
+}
+
+Controller::~Controller()
+{
+    for(Scene* scene: scenes)
+    {
+        delete scene;
     }
 }
 
@@ -44,6 +56,11 @@ void Controller::start()
         ImGui::SetNextWindowSize(ImVec2(600.f, 600.f), ImGuiCond_Always);
 
         ImGuiWindowFlags flags = ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoTitleBar;
+
+        if(Globals::popupOpen)
+        {
+            flags |= ImGuiWindowFlags_NoInputs;
+        }
 
         if(ImGui::Begin("##Window", nullptr, flags))
         {

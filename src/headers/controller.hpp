@@ -14,6 +14,7 @@ private:
 
 public:
     Controller();
+    ~Controller();
 
     void start();
 };

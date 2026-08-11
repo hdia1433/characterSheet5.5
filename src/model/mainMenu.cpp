@@ -12,7 +12,7 @@ void MainMenu::render()
     ImGui::Separator();
     if(ImGui::Button("Create new character"))
     {
-        
+        Globals::currentScene = SceneName::CreateChar;
     }
     if(ImGui::Button("Load character"))
     {

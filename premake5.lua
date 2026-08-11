@@ -26,6 +26,7 @@ project "characterSheet5.5"
 
     includedirs {
         "src/headers",
+        "src/enums",
         "/opt/homebrew/include",
         "externals/imgui-sfml",
         "externals/imgui",

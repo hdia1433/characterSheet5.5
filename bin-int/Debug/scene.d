@@ -1,5 +1,5 @@
 bin-int/Debug/scene.o: \
-  /Users/heberdiamond/Library/Mobile\ Documents/com~apple~Numbers/Documents/characterSheet5.5/src/headers/pch.hpp \
+  /Users/heberdiamond/cppProjects/characterSheet5.5/src/headers/pch.hpp \
   /opt/homebrew/include/SFML/Graphics.hpp \
   /opt/homebrew/include/SFML/Graphics/BlendMode.hpp \
   /opt/homebrew/include/SFML/Graphics/Export.hpp \
@@ -78,10 +78,10 @@ bin-int/Debug/scene.o: \
   /opt/homebrew/include/SFML/System/InputStream.hpp \
   /opt/homebrew/include/SFML/System/MemoryInputStream.hpp \
   /opt/homebrew/include/SFML/System/Sleep.hpp \
-  /Users/heberdiamond/Library/Mobile\ Documents/com~apple~Numbers/Documents/characterSheet5.5/externals/imgui/imgui.h \
-  /Users/heberdiamond/Library/Mobile\ Documents/com~apple~Numbers/Documents/characterSheet5.5/externals/imgui/imconfig.h \
-  /Users/heberdiamond/Library/Mobile\ Documents/com~apple~Numbers/Documents/characterSheet5.5/externals/imgui-sfml/imgui-SFML.h \
-  /Users/heberdiamond/Library/Mobile\ Documents/com~apple~Numbers/Documents/characterSheet5.5/externals/imgui-sfml/imgui-SFML_export.h \
+  /Users/heberdiamond/cppProjects/characterSheet5.5/externals/imgui/imgui.h \
+  /Users/heberdiamond/cppProjects/characterSheet5.5/externals/imgui/imconfig.h \
+  /Users/heberdiamond/cppProjects/characterSheet5.5/externals/imgui-sfml/imgui-SFML.h \
+  /Users/heberdiamond/cppProjects/characterSheet5.5/externals/imgui-sfml/imgui-SFML_export.h \
   /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/string \
   /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__algorithm/max.h \
   /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__algorithm/comp.h \
@@ -989,10 +989,10 @@ bin-int/Debug/scene.o: \
 /opt/homebrew/include/SFML/System/InputStream.hpp:
 /opt/homebrew/include/SFML/System/MemoryInputStream.hpp:
 /opt/homebrew/include/SFML/System/Sleep.hpp:
-/Users/heberdiamond/Library/Mobile\ Documents/com~apple~Numbers/Documents/characterSheet5.5/externals/imgui/imgui.h:
-/Users/heberdiamond/Library/Mobile\ Documents/com~apple~Numbers/Documents/characterSheet5.5/externals/imgui/imconfig.h:
-/Users/heberdiamond/Library/Mobile\ Documents/com~apple~Numbers/Documents/characterSheet5.5/externals/imgui-sfml/imgui-SFML.h:
-/Users/heberdiamond/Library/Mobile\ Documents/com~apple~Numbers/Documents/characterSheet5.5/externals/imgui-sfml/imgui-SFML_export.h:
+/Users/heberdiamond/cppProjects/characterSheet5.5/externals/imgui/imgui.h:
+/Users/heberdiamond/cppProjects/characterSheet5.5/externals/imgui/imconfig.h:
+/Users/heberdiamond/cppProjects/characterSheet5.5/externals/imgui-sfml/imgui-SFML.h:
+/Users/heberdiamond/cppProjects/characterSheet5.5/externals/imgui-sfml/imgui-SFML_export.h:
 /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/string:
 /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__algorithm/max.h:
 /opt/homebrew/Cellar/llvm/22.1.8/bin/../include/c++/v1/__algorithm/comp.h:
