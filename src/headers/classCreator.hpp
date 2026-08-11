@@ -5,6 +5,7 @@
 #include "skills.hpp"
 #include "weaponTypes.hpp"
 #include "armourTypes.hpp"
+#include "equipment.hpp"
 
 class ClassCreator
 {
@@ -22,8 +23,17 @@ private:
     WeaponType weaponProficiencies;
     ArmourType armourTraining;
 
+    int equipmentSelection;
+    std::vector<Equipment*> equipmentOption;
+    std::vector<Equipment*> classEquipment;
+
+    Money moneyOption1;
+    Money moneyOption2;
+    Money classMoney;
+
 public:
-    ClassCreator(ClassName className);
+    ClassCreator(const ClassName& className);
+    ~ClassCreator();
 
     void render(int maxLevel);
 

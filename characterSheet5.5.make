@@ -77,9 +77,12 @@ endif
 GENERATED :=
 OBJECTS :=
 
+GENERATED += $(OBJDIR)/adventuringGear.o
 GENERATED += $(OBJDIR)/classCreator.o
 GENERATED += $(OBJDIR)/controller.o
 GENERATED += $(OBJDIR)/createChar.o
+GENERATED += $(OBJDIR)/equipment.o
+GENERATED += $(OBJDIR)/equipmentPack.o
 GENERATED += $(OBJDIR)/gobals.o
 GENERATED += $(OBJDIR)/imgui-SFML.o
 GENERATED += $(OBJDIR)/imgui.o
@@ -91,9 +94,13 @@ GENERATED += $(OBJDIR)/main.o
 GENERATED += $(OBJDIR)/mainMenu.o
 GENERATED += $(OBJDIR)/pch.o
 GENERATED += $(OBJDIR)/scene.o
+GENERATED += $(OBJDIR)/weapon.o
+OBJECTS += $(OBJDIR)/adventuringGear.o
 OBJECTS += $(OBJDIR)/classCreator.o
 OBJECTS += $(OBJDIR)/controller.o
 OBJECTS += $(OBJDIR)/createChar.o
+OBJECTS += $(OBJDIR)/equipment.o
+OBJECTS += $(OBJDIR)/equipmentPack.o
 OBJECTS += $(OBJDIR)/gobals.o
 OBJECTS += $(OBJDIR)/imgui-SFML.o
 OBJECTS += $(OBJDIR)/imgui.o
@@ -105,6 +112,7 @@ OBJECTS += $(OBJDIR)/main.o
 OBJECTS += $(OBJDIR)/mainMenu.o
 OBJECTS += $(OBJDIR)/pch.o
 OBJECTS += $(OBJDIR)/scene.o
+OBJECTS += $(OBJDIR)/weapon.o
 
 # Rules
 # #############################################
@@ -195,10 +203,19 @@ $(OBJDIR)/main.o: src/controller/main.cpp
 $(OBJDIR)/pch.o: src/controller/pch.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/adventuringGear.o: src/model/adventuringGear.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/classCreator.o: src/model/classCreator.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/createChar.o: src/model/createChar.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/equipment.o: src/model/equipment.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/equipmentPack.o: src/model/equipmentPack.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/gobals.o: src/model/gobals.cpp
@@ -208,6 +225,9 @@ $(OBJDIR)/mainMenu.o: src/model/mainMenu.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/scene.o: src/model/scene.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/weapon.o: src/model/weapon.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 

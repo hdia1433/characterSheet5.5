@@ -1,9 +1,12 @@
 #include "classCreator.hpp"
+#include "weapon.hpp"
+#include "equipmentPack.hpp"
 
-ClassCreator::ClassCreator(ClassName className):
+ClassCreator::ClassCreator(const ClassName& className):
     level(1),
     skillProficiencies(Skill::None),
-    className(className)
+    className(className),
+    equipmentSelection(0)
 {
     switch(className)
     {
@@ -22,7 +25,24 @@ ClassCreator::ClassCreator(ClassName className):
             };
             weaponProficiencies = WeaponType::Simple | WeaponType::Martial;
             armourTraining = ArmourType::Light | ArmourType::Medium | ArmourType::Shields;
+
+            equipmentOption = 
+            {
+                greataxe(1),
+                handaxe(4),
+                explorersPack(1)
+            };
+            moneyOption1 = Money{.amount = 15, .coinType = CoinType::Gold};
+            moneyOption2 = Money{.amount = 75, .coinType = CoinType::Gold};
             break;
+    }
+}
+
+ClassCreator::~ClassCreator()
+{
+    for(Equipment* equipment: classEquipment)
+    {
+        delete equipment;
     }
 }
 
@@ -79,6 +99,7 @@ void ClassCreator::render(int maxLevel)
                 if(ImGui::Selectable(skillToString(skillOptions[i]).c_str(), isSelected))
                 {
                     skillSelection1 = skillOptions[i];
+                    skillProficiencies = skillSelection1 | skillSelection2;
                 }
 
                 if(isSelected)
@@ -94,7 +115,7 @@ void ClassCreator::render(int maxLevel)
          {
              for(int i = 0; i < skillOptions.size(); i++)
              {
-                 if(skillOptions[i] == skillSelection2)
+                 if(skillOptions[i] == skillSelection1)
                  {
                      continue;
                  }
@@ -103,7 +124,8 @@ void ClassCreator::render(int maxLevel)
 
                  if(ImGui::Selectable(skillToString(skillOptions[i]).c_str(), isSelected))
                  {
-                     skillSelection2 = skillOptions[i];
+                    skillSelection2 = skillOptions[i];
+                    skillProficiencies = skillSelection1 | skillSelection2;
                  }
 
                  if(isSelected)
@@ -119,6 +141,29 @@ void ClassCreator::render(int maxLevel)
          ImGui::Text("Weapon Proficiencies: %s", weaponTypeToString(weaponProficiencies).c_str());
          ImGui::Separator();
          ImGui::Text("Armour Training: %s", armourTypeToString(armourTraining).c_str());
+
+         std::string equipmentStr = "";
+
+        for(Equipment* equipment: equipmentOption)
+        {
+            equipmentStr += equipment->getName() + ", ";
+        }
+
+        equipmentStr += moneyOption1.toString();
+
+        ImGui::Separator();
+        ImGui::Text("Starting Equipment: (A) %s; (B) %s", equipmentStr.c_str(), moneyOption2.toString().c_str());
+        if(ImGui::RadioButton("(A)", &equipmentSelection, 0))
+        {
+            classEquipment = equipmentOption;
+            classMoney = moneyOption1;
+        }
+        if(ImGui::RadioButton("(B)", &equipmentSelection, 1))
+        {
+            classEquipment.clear();
+            classMoney = moneyOption2;
+        }
+
          ImGui::PopID();
     }
 }
