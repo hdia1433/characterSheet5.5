@@ -100,7 +100,7 @@ void CreateChar::render()
 
             if(ImGui::Button("Add"))
             {
-                chosenClasses.emplace((ClassName)currentClass, 1);
+                chosenClasses.emplace((ClassName)currentClass, (ClassName)currentClass);
                 classPopup = false;
                 Globals::popupOpen = false;
             }
@@ -134,9 +134,9 @@ void CreateChar::classSection()
 {
     int totalLevels = 0;
 
-    for(auto& [_, level]: chosenClasses)
+    for(auto& [_, classCreator]: chosenClasses)
     {
-        totalLevels += level;
+        totalLevels += classCreator.getLevel();
     }
 
     ImGui::BeginDisabled(totalLevels == 20);
@@ -149,127 +149,10 @@ void CreateChar::classSection()
 
     ImGui::EndDisabled();
 
-    for(auto& [className, level]: chosenClasses)
+    for(auto& [_, classCreator]: chosenClasses)
     {
-        if(ImGui::CollapsingHeader(classOptions[(int)className], ImGuiTreeNodeFlags_DefaultOpen))
-        {
-            ImGui::Text("Level");
-            ImGui::SameLine();
-
-            ImGui::PushID((int)className);
-
-            if (ImGui::BeginCombo("##Level", std::to_string(level).c_str()))
-            {
-                for(int i = 1; i <= 20 - totalLevels + level; i++)
-                {
-                    const bool isSelected = i == level;
-
-                    if(ImGui::Selectable(std::to_string(i).c_str(), isSelected))
-                    {
-                        level = i;
-                    }
-
-                    if(isSelected)
-                    {
-                        ImGui::SetItemDefaultFocus();
-                    }
-                }
-
-                ImGui::EndCombo();
-            }
-
-            switch(className)
-            {
-                case ClassName::Barbarian:
-                    barbarianSection(level);
-                    break;
-                default:
-                    break;
-            }
-
-            if(ImGui::Button("Remove"))
-            {
-                classToRemove = className;
-                removePopup = true;
-                Globals::popupOpen = true;
-            }
-
-            ImGui::PopID();
-        }
+        classCreator.render(20 - totalLevels + classCreator.getLevel());
     }
-}
-
-void CreateChar::barbarianSection(int level)
-{
-    ImGui::Separator();
-    ImGui::Text("Primary Ability: Strength");
-    ImGui::Separator();
-    ImGui::Text("Hit Die: %dD12", level);
-    ImGui::Separator();
-    ImGui::Text("Saving Throw Proficiencies: Strength and Constitution");
-    ImGui::Separator();
-    ImGui::Text("Skill Proficinecies (choose 2):");
-
-    if(ImGui::BeginCombo("##Skill 1", skillToString(barbarianSkills[skill1]).c_str()))
-    {
-        for(int i = 0; i < IM_ARRAYSIZE(barbarianSkills); i++)
-        {
-            if(i == skill2)
-            {
-                continue;
-            }
-
-            const bool isSelected = i == skill1;
-
-            if(ImGui::Selectable(skillToString(barbarianSkills[i]).c_str(), isSelected))
-            {
-                skill1 = i;
-            }
-
-            if(isSelected)
-            {
-                ImGui::SetItemDefaultFocus();
-            }
-        }
-
-        ImGui::EndCombo();
-    }
-
-    if(ImGui::BeginCombo("##Skill 2", skillToString(barbarianSkills[skill2]).c_str()))
-    {
-        for(int i = 0; i < IM_ARRAYSIZE(barbarianSkills); i++)
-        {
-            if(i == skill1)
-            {
-                continue;
-            }
-
-            const bool isSelected = i == skill2;
-
-            if(ImGui::Selectable(skillToString(barbarianSkills[i]).c_str(), isSelected))
-            {
-                skill2 = i;
-            }
-
-            if(isSelected)
-            {
-                ImGui::SetItemDefaultFocus();
-            }
-        }
-
-        ImGui::EndCombo();
-    }
-
-    ImGui::Separator();
-    ImGui::Text("Weapon Proficiencies: Simple and Martial");
-    ImGui::Separator();
-    ImGui::Text("Armour Training: Light, Medium, and Shields");
-    ImGui::Separator();
-    ImGui::Text("Starting Equipment (choose 1):");
-
-    ImGui::RadioButton("Greataxe, 4 Handaxes, Exporer's Pack, and 15 GP", &classEquipmentSeleciton, 0);
-    ImGui::RadioButton("75 GP", &classEquipmentSeleciton, 1);
-    ImGui::Separator();
 }
 
 void CreateChar::originSelection()

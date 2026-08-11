@@ -375,5 +375,34 @@
    "src/model/scene.cpp"
   ],
   "file": "src/model/scene.cpp"
+ },
+ {
+  "directory": "/Users/heberdiamond/cppProjects/characterSheet5.5",
+  "arguments": [
+   "clang++",
+   "-include",
+   "bin-int/Debug/pch.hpp",
+   "-MD",
+   "-MP",
+   "-DDEBUG",
+   "-Isrc/headers",
+   "-Isrc/enums",
+   "-Iexternals/imgui-sfml",
+   "-Iexternals/imgui",
+   "-I/opt/homebrew/include",
+   "-I/opt/homebrew/include/SFML",
+   "-arch",
+   "arm64",
+   "-g",
+   "-std=c++23",
+   "-std=c++23",
+   "-o",
+   "bin-int/Debug/classCreator.o",
+   "-MF",
+   "bin-int/Debug/classCreator.d",
+   "-c",
+   "src/model/classCreator.cpp"
+  ],
+  "file": "src/model/classCreator.cpp"
  }
 ]

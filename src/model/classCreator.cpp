@@ -1,6 +1,7 @@
 #include "classCreator.hpp"
 
 ClassCreator::ClassCreator(ClassName className):
+    level(1),
     skillProficiencies(Skill::None),
     className(className)
 {
@@ -117,7 +118,12 @@ void ClassCreator::render(int maxLevel)
          ImGui::Separator();
          ImGui::Text("Weapon Proficiencies: %s", weaponTypeToString(weaponProficiencies).c_str());
          ImGui::Separator();
-         ImGui::Text("Armour Training: Light, Medium, and Shields");
+         ImGui::Text("Armour Training: %s", armourTypeToString(armourTraining).c_str());
          ImGui::PopID();
     }
+}
+
+int& ClassCreator::getLevel()
+{
+    return level;
 }

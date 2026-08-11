@@ -11,8 +11,7 @@
 class CreateChar: public Scene
 {
 private:
-    std::vector<ClassCreator> classCreators;
-    std::unordered_map<ClassName, int> chosenClasses;
+    std::unordered_map<ClassName, ClassCreator> chosenClasses;
 
     bool classPopup;
     ClassName classToRemove;
@@ -38,7 +37,6 @@ public:
 
 private:
     void classSection();
-    void barbarianSection(int level);
 
     void originSelection();
 };

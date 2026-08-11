@@ -26,4 +26,6 @@ public:
     ClassCreator(ClassName className);
 
     void render(int maxLevel);
+
+    int& getLevel();
 };

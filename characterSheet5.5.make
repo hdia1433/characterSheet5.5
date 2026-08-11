@@ -77,6 +77,7 @@ endif
 GENERATED :=
 OBJECTS :=
 
+GENERATED += $(OBJDIR)/classCreator.o
 GENERATED += $(OBJDIR)/controller.o
 GENERATED += $(OBJDIR)/createChar.o
 GENERATED += $(OBJDIR)/gobals.o
@@ -90,6 +91,7 @@ GENERATED += $(OBJDIR)/main.o
 GENERATED += $(OBJDIR)/mainMenu.o
 GENERATED += $(OBJDIR)/pch.o
 GENERATED += $(OBJDIR)/scene.o
+OBJECTS += $(OBJDIR)/classCreator.o
 OBJECTS += $(OBJDIR)/controller.o
 OBJECTS += $(OBJDIR)/createChar.o
 OBJECTS += $(OBJDIR)/gobals.o
@@ -191,6 +193,9 @@ $(OBJDIR)/main.o: src/controller/main.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/pch.o: src/controller/pch.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/classCreator.o: src/model/classCreator.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/createChar.o: src/model/createChar.cpp

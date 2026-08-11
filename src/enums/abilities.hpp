@@ -62,4 +62,6 @@ inline std::string abilityToString(Ability ability)
     }
 
     abilityName = abilityName.substr(0, abilityName.size() - 2);
+
+    return abilityName;
 }
