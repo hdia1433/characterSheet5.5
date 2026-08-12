@@ -2,5 +2,6 @@
 
 enum class DamageType
 {
-    Slashing
+    Slashing,
+    Piercing
 };

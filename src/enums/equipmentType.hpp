@@ -3,6 +3,8 @@
 enum class EquipmentType
 {
     Weapon,
+    Armour,
     EquipmentPack,
-    AdventuringGear
+    AdventuringGear,
+    Tool
 };

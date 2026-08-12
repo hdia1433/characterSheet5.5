@@ -1,6 +1,7 @@
 #include "classCreator.hpp"
 #include "weapon.hpp"
 #include "equipmentPack.hpp"
+#include "armour.hpp"
 
 ClassCreator::ClassCreator(const ClassName& className):
     level(1),
@@ -34,6 +35,62 @@ ClassCreator::ClassCreator(const ClassName& className):
             };
             moneyOption1 = Money{.amount = 15, .coinType = CoinType::Gold};
             moneyOption2 = Money{.amount = 75, .coinType = CoinType::Gold};
+            break;
+        case ClassName::Bard:
+            primaryAbilities = Ability::Charisma;
+            hitDie = 6;
+            skillOptions = 
+            {
+                Skill::Acrobatics,
+                Skill::AnimalHandling,
+                Skill::Arcana,
+                Skill::Athletics,
+                Skill::Deception,
+                Skill::History,
+                Skill::Insight,
+                Skill::Intimidation,
+                Skill::Investigation,
+                Skill::Medicine,
+                Skill::Nature,
+                Skill::Perception,
+                Skill::Performance,
+                Skill::Persuasion,
+                Skill::Religion,
+                Skill::SleightOfHand,
+                Skill::Stealth,
+                Skill::Survival
+            };
+            weaponProficiencies = WeaponType::Simple;
+            toolProficiencyOptions =
+            {
+                ToolType::Bagpipes,
+                ToolType::Drum,
+                ToolType::Dulcimer,
+                ToolType::Flute,
+                ToolType::Horn,
+                ToolType::Lute,
+                ToolType::Lyre,
+                ToolType::PanFlute,
+                ToolType::Shawm,
+                ToolType::Viol
+            };
+            armourTraining = ArmourType::Light;
+            equipmentOption = 
+            {
+                leather(),
+                dagger(2),
+                entertainersPack()
+            };
+            additionEquipmentOptions = "Any musical instrument";
+
+            toolOptions =
+            {
+                bagpipes(),
+                drum()
+            };
+
+            moneyOption1 = Money{19, CoinType::Gold};
+            moneyOption2 = Money{90, CoinType::Gold};
             break;
     }
 }
@@ -140,6 +197,87 @@ void ClassCreator::render(int maxLevel)
          ImGui::Separator();
          ImGui::Text("Weapon Proficiencies: %s", weaponTypeToString(weaponProficiencies).c_str());
          ImGui::Separator();
+
+        if(!toolProficiencyOptions.empty())
+        {
+            ImGui::Text("Tool Proficiencies: (Choose 3)");
+            if(ImGui::BeginCombo("##Tools1", toolTypeToString(toolTypeSelection1).c_str()))
+            {
+                for(int i = 0; i < toolProficiencyOptions.size(); i++)
+                {
+                    if(toolProficiencyOptions[i] == toolTypeSelection2 || toolProficiencyOptions[i] == toolTypeSelection3)
+                    {
+                        continue;
+                    }
+
+                    const bool isSelected = toolProficiencyOptions[i] == toolTypeSelection1;
+
+                    if(ImGui::Selectable(toolTypeToString(toolProficiencyOptions[i]).c_str(), isSelected))
+                    {
+                        toolTypeSelection1 = toolProficiencyOptions[i];
+                        toolProficiencies = toolTypeSelection1 | toolTypeSelection2 | toolTypeSelection3;
+                    }
+
+                    if(isSelected)
+                    {
+                        ImGui::SetItemDefaultFocus();
+                    }
+                }
+
+                ImGui::EndCombo();
+            }
+            if(ImGui::BeginCombo("##Tools2", toolTypeToString(toolTypeSelection1).c_str()))
+            {
+                for(int i = 0; i < toolProficiencyOptions.size(); i++)
+                {
+                    if(toolProficiencyOptions[i] == toolTypeSelection1 || toolProficiencyOptions[i] == toolTypeSelection3)
+                    {
+                        continue;
+                    }
+
+                    const bool isSelected = toolProficiencyOptions[i] == toolTypeSelection2;
+
+                    if(ImGui::Selectable(toolTypeToString(toolProficiencyOptions[i]).c_str(), isSelected))
+                    {
+                        toolTypeSelection2 = toolProficiencyOptions[i];
+                        toolProficiencies = toolTypeSelection1 | toolTypeSelection2 | toolTypeSelection3;
+                    }
+
+                    if(isSelected)
+                    {
+                        ImGui::SetItemDefaultFocus();
+                    }
+                }
+
+                ImGui::EndCombo();
+            }
+            if(ImGui::BeginCombo("##Tools3", toolTypeToString(toolTypeSelection1).c_str()))
+            {
+                for(int i = 0; i < toolProficiencyOptions.size(); i++)
+                {
+                    if(toolProficiencyOptions[i] == toolTypeSelection1 || toolProficiencyOptions[i] == toolTypeSelection2)
+                    {
+                        continue;
+                    }
+
+                    const bool isSelected = toolProficiencyOptions[i] == toolTypeSelection3;
+
+                    if(ImGui::Selectable(toolTypeToString(toolProficiencyOptions[i]).c_str(), isSelected))
+                    {
+                        toolTypeSelection3 = toolProficiencyOptions[i];
+                        toolProficiencies = toolTypeSelection1 | toolTypeSelection2 | toolTypeSelection3;
+                    }
+
+                    if(isSelected)
+                    {
+                        ImGui::SetItemDefaultFocus();
+                    }
+                }
+
+                ImGui::EndCombo();
+            }
+        }
+
          ImGui::Text("Armour Training: %s", armourTypeToString(armourTraining).c_str());
 
          std::string equipmentStr = "";
@@ -147,6 +285,11 @@ void ClassCreator::render(int maxLevel)
         for(Equipment* equipment: equipmentOption)
         {
             equipmentStr += equipment->getName() + ", ";
+        }
+
+        if(!additionEquipmentOptions.empty())
+        {
+            equipmentStr += ", " + additionEquipmentOptions;
         }
 
         equipmentStr += moneyOption1.toString();
@@ -162,6 +305,11 @@ void ClassCreator::render(int maxLevel)
         {
             classEquipment.clear();
             classMoney = moneyOption2;
+        }
+
+        if(equipmentSelection == 0 && className == ClassName::Bard)
+        {
+
         }
 
          ImGui::PopID();

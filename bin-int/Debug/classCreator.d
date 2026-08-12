@@ -914,10 +914,10 @@ bin-int/Debug/classCreator.o: \
   src/enums/className.hpp src/enums/abilities.hpp src/enums/skills.hpp \
   src/enums/weaponTypes.hpp src/enums/armourTypes.hpp \
   src/headers/equipment.hpp src/enums/equipmentType.hpp \
-  src/headers/money.hpp src/headers/weapon.hpp src/headers/dice.hpp \
-  src/enums/damageType.hpp src/enums/weaponProperties.hpp \
-  src/enums/masteryProperties.hpp src/headers/range.hpp \
-  src/headers/equipmentPack.hpp
+  src/headers/money.hpp src/enums/toolType.hpp src/headers/weapon.hpp \
+  src/headers/dice.hpp src/enums/damageType.hpp \
+  src/enums/weaponProperties.hpp src/enums/masteryProperties.hpp \
+  src/headers/range.hpp src/headers/equipmentPack.hpp
 /opt/homebrew/include/SFML/Graphics.hpp:
 /opt/homebrew/include/SFML/Graphics/BlendMode.hpp:
 /opt/homebrew/include/SFML/Graphics/Export.hpp:
@@ -1838,6 +1838,7 @@ src/enums/armourTypes.hpp:
 src/headers/equipment.hpp:
 src/enums/equipmentType.hpp:
 src/headers/money.hpp:
+src/enums/toolType.hpp:
 src/headers/weapon.hpp:
 src/headers/dice.hpp:
 src/enums/damageType.hpp:

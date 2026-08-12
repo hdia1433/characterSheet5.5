@@ -6,6 +6,8 @@
 #include "weaponTypes.hpp"
 #include "armourTypes.hpp"
 #include "equipment.hpp"
+#include "toolType.hpp"
+#include "tool.hpp"
 
 class ClassCreator
 {
@@ -21,10 +23,17 @@ private:
     Skill skillSelection2;
     Skill skillProficiencies;
     WeaponType weaponProficiencies;
+    std::vector<ToolType> toolProficiencyOptions;
+    ToolType toolTypeSelection1;
+    ToolType toolTypeSelection2;
+    ToolType toolTypeSelection3;
+    ToolType toolProficiencies;
     ArmourType armourTraining;
 
     int equipmentSelection;
     std::vector<Equipment*> equipmentOption;
+    std::string additionEquipmentOptions;
+    std::vector<Tool*> toolOptions;
     std::vector<Equipment*> classEquipment;
 
     Money moneyOption1;
