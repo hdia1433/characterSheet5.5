@@ -7,7 +7,8 @@ ClassCreator::ClassCreator(const ClassName& className):
     level(1),
     skillProficiencies(Skill::None),
     className(className),
-    equipmentSelection(0)
+    equipmentSelection(0),
+    toolSelection(0)
 {
     switch(className)
     {
@@ -86,7 +87,15 @@ ClassCreator::ClassCreator(const ClassName& className):
             toolOptions =
             {
                 bagpipes(),
-                drum()
+                drum(),
+                dulcimer(),
+                flute(),
+                horn(),
+                lute(),
+                lyre(),
+                panFlute(),
+                shawm(),
+                viol()
             };
 
             moneyOption1 = Money{19, CoinType::Gold};
@@ -278,6 +287,8 @@ void ClassCreator::render(int maxLevel)
             }
         }
 
+        ImGui::Separator();
+
          ImGui::Text("Armour Training: %s", armourTypeToString(armourTraining).c_str());
 
          std::string equipmentStr = "";
@@ -309,7 +320,26 @@ void ClassCreator::render(int maxLevel)
 
         if(equipmentSelection == 0 && className == ClassName::Bard)
         {
+            if(ImGui::BeginCombo("##ToolOp", toolOptions[toolSelection]->getName().c_str()))
+            {
+                for(int i = 0; i < toolOptions.size(); i++)
+                {
+                    const bool isSelected = i == toolSelection;
 
+                    if(ImGui::Selectable(toolOptions[i]->getName().c_str(), isSelected))
+                    {
+                        toolSelection = i;
+                        tool = toolOptions[i];
+                    }
+
+                    if(isSelected)
+                    {
+                        ImGui::SetItemDefaultFocus();
+                    }
+                }
+
+                ImGui::EndCombo();
+            }
         }
 
          ImGui::PopID();

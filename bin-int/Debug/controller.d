@@ -917,8 +917,8 @@ bin-int/Debug/controller.o: \
   src/headers/classCreator.hpp src/enums/abilities.hpp \
   src/enums/weaponTypes.hpp src/enums/armourTypes.hpp \
   src/headers/equipment.hpp src/enums/equipmentType.hpp \
-  src/headers/money.hpp src/enums/toolType.hpp src/headers/globals.hpp \
-  src/enums/sceneName.hpp
+  src/headers/money.hpp src/enums/toolType.hpp src/headers/tool.hpp \
+  src/headers/globals.hpp src/enums/sceneName.hpp
 /opt/homebrew/include/SFML/Graphics.hpp:
 /opt/homebrew/include/SFML/Graphics/BlendMode.hpp:
 /opt/homebrew/include/SFML/Graphics/Export.hpp:
@@ -1845,5 +1845,6 @@ src/headers/equipment.hpp:
 src/enums/equipmentType.hpp:
 src/headers/money.hpp:
 src/enums/toolType.hpp:
+src/headers/tool.hpp:
 src/headers/globals.hpp:
 src/enums/sceneName.hpp:

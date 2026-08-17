@@ -14,3 +14,11 @@ public:
 
 Tool* bagpipes(int amount = 1);
 Tool* drum(int amount = 1);
+Tool* dulcimer(int amount = 1);
+Tool* flute(int amount = 1);
+Tool* horn(int amount = 1);
+Tool* lute(int amount = 1);
+Tool* lyre(int amount = 1);
+Tool* panFlute(int amount = 1);
+Tool* shawm(int amount = 1);
+Tool* viol(int amount = 1);

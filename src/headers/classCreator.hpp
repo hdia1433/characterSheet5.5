@@ -34,6 +34,8 @@ private:
     std::vector<Equipment*> equipmentOption;
     std::string additionEquipmentOptions;
     std::vector<Tool*> toolOptions;
+    int toolSelection;
+    Tool* tool;
     std::vector<Equipment*> classEquipment;
 
     Money moneyOption1;

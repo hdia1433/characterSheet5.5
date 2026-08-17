@@ -78,6 +78,7 @@ GENERATED :=
 OBJECTS :=
 
 GENERATED += $(OBJDIR)/adventuringGear.o
+GENERATED += $(OBJDIR)/armour.o
 GENERATED += $(OBJDIR)/classCreator.o
 GENERATED += $(OBJDIR)/controller.o
 GENERATED += $(OBJDIR)/createChar.o
@@ -94,8 +95,10 @@ GENERATED += $(OBJDIR)/main.o
 GENERATED += $(OBJDIR)/mainMenu.o
 GENERATED += $(OBJDIR)/pch.o
 GENERATED += $(OBJDIR)/scene.o
+GENERATED += $(OBJDIR)/tool.o
 GENERATED += $(OBJDIR)/weapon.o
 OBJECTS += $(OBJDIR)/adventuringGear.o
+OBJECTS += $(OBJDIR)/armour.o
 OBJECTS += $(OBJDIR)/classCreator.o
 OBJECTS += $(OBJDIR)/controller.o
 OBJECTS += $(OBJDIR)/createChar.o
@@ -112,6 +115,7 @@ OBJECTS += $(OBJDIR)/main.o
 OBJECTS += $(OBJDIR)/mainMenu.o
 OBJECTS += $(OBJDIR)/pch.o
 OBJECTS += $(OBJDIR)/scene.o
+OBJECTS += $(OBJDIR)/tool.o
 OBJECTS += $(OBJDIR)/weapon.o
 
 # Rules
@@ -206,6 +210,9 @@ $(OBJDIR)/pch.o: src/controller/pch.cpp
 $(OBJDIR)/adventuringGear.o: src/model/adventuringGear.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/armour.o: src/model/armour.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/classCreator.o: src/model/classCreator.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
@@ -225,6 +232,9 @@ $(OBJDIR)/mainMenu.o: src/model/mainMenu.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/scene.o: src/model/scene.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/tool.o: src/model/tool.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/weapon.o: src/model/weapon.cpp

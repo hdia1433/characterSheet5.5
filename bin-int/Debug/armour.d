@@ -1,4 +1,4 @@
-bin-int/Debug/classCreator.o: \
+bin-int/Debug/armour.o: \
   /Users/heberdiamond/cppProjects/characterSheet5.5/src/headers/pch.hpp \
   /opt/homebrew/include/SFML/Graphics.hpp \
   /opt/homebrew/include/SFML/Graphics/BlendMode.hpp \
@@ -910,15 +910,9 @@ bin-int/Debug/classCreator.o: \
   /opt/homebrew/Cellar/llvm/22.1.8/lib/clang/22/include/__float_header_macro.h \
   /opt/homebrew/Cellar/llvm/22.1.8/lib/clang/22/include/__float_float.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/SDKSettings.json \
-  src/model/classCreator.cpp src/headers/classCreator.hpp \
-  src/enums/className.hpp src/enums/abilities.hpp src/enums/skills.hpp \
-  src/enums/weaponTypes.hpp src/enums/armourTypes.hpp \
-  src/headers/equipment.hpp src/enums/equipmentType.hpp \
-  src/headers/money.hpp src/enums/toolType.hpp src/headers/tool.hpp \
-  src/headers/weapon.hpp src/headers/dice.hpp src/enums/damageType.hpp \
-  src/enums/weaponProperties.hpp src/enums/masteryProperties.hpp \
-  src/headers/range.hpp src/headers/equipmentPack.hpp \
-  src/headers/armour.hpp
+  src/model/armour.cpp src/headers/armour.hpp src/headers/equipment.hpp \
+  src/enums/equipmentType.hpp src/headers/money.hpp \
+  src/enums/armourTypes.hpp
 /opt/homebrew/include/SFML/Graphics.hpp:
 /opt/homebrew/include/SFML/Graphics/BlendMode.hpp:
 /opt/homebrew/include/SFML/Graphics/Export.hpp:
@@ -1829,23 +1823,9 @@ bin-int/Debug/classCreator.o: \
 /opt/homebrew/Cellar/llvm/22.1.8/lib/clang/22/include/__float_header_macro.h:
 /opt/homebrew/Cellar/llvm/22.1.8/lib/clang/22/include/__float_float.h:
 /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/SDKSettings.json:
-src/model/classCreator.cpp:
-src/headers/classCreator.hpp:
-src/enums/className.hpp:
-src/enums/abilities.hpp:
-src/enums/skills.hpp:
-src/enums/weaponTypes.hpp:
-src/enums/armourTypes.hpp:
+src/model/armour.cpp:
+src/headers/armour.hpp:
 src/headers/equipment.hpp:
 src/enums/equipmentType.hpp:
 src/headers/money.hpp:
-src/enums/toolType.hpp:
-src/headers/tool.hpp:
-src/headers/weapon.hpp:
-src/headers/dice.hpp:
-src/enums/damageType.hpp:
-src/enums/weaponProperties.hpp:
-src/enums/masteryProperties.hpp:
-src/headers/range.hpp:
-src/headers/equipmentPack.hpp:
-src/headers/armour.hpp:
+src/enums/armourTypes.hpp:
