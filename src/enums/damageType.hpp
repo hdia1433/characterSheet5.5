@@ -3,5 +3,6 @@
 enum class DamageType
 {
     Slashing,
-    Piercing
+    Piercing,
+    Bludgeoning
 };

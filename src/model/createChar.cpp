@@ -16,9 +16,10 @@ CreateChar::CreateChar():
         "Rogue",
         "Sorcerer",
         "Warlock",
-        "Wizard"
+        "Wizard",
+        "None"
     ),
-    currentClass(0),
+    currentClass(IM_ARRAYSIZE(classOptions) - 1),
 
     skill1(0),
     skill2(1),
@@ -98,9 +99,19 @@ void CreateChar::render()
                 ImGui::EndCombo();
             }
 
+            ImGui::BeginDisabled(currentClass == IM_ARRAYSIZE(classOptions) - 1);
             if(ImGui::Button("Add"))
             {
                 chosenClasses.emplace((ClassName)currentClass, (ClassName)currentClass);
+                currentClass = IM_ARRAYSIZE(classOptions) - 1;
+                classPopup = false;
+                Globals::popupOpen = false;
+            }
+            ImGui::EndDisabled();
+
+            ImGui::SameLine();
+            if(ImGui::Button("Cancel"))
+            {
                 classPopup = false;
                 Globals::popupOpen = false;
             }

@@ -16,7 +16,7 @@ private:
     bool classPopup;
     ClassName classToRemove;
     bool removePopup;
-    const char* classOptions[12];
+    const char* classOptions[13];
     int currentClass;
 
     int skill1;

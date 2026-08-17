@@ -18,3 +18,5 @@ public:
 };
 
 Armour* leather(int amount = 1);
+Armour* chainShirt(int amount = 1);
+Armour* shield(int amount = 1);

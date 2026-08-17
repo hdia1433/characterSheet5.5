@@ -3,8 +3,10 @@
 enum class WeaponType:std::uint8_t
 {
     None = 0,
-    Simple = 1 << 0,
-    Martial = 1 << 1
+    SimpleMelee = 1 << 0,
+    MartialMelee = 1 << 1,
+    SimpleRanged = 1 << 2,
+    MartialRanged = 1 << 3
 };
 
 inline WeaponType operator|(WeaponType lhs, WeaponType rhs)
@@ -31,11 +33,11 @@ inline std::string weaponTypeToString(WeaponType weaponType)
 
     std::string str = "";
 
-    if(hasWeaponType(weaponType, WeaponType::Simple))
+    if(hasWeaponType(weaponType, WeaponType::SimpleMelee))
     {
         str += "Simple, ";
     }
-    if(hasWeaponType(weaponType, WeaponType::Martial))
+    if(hasWeaponType(weaponType, WeaponType::MartialMelee))
     {
         str += "Martial, ";
     }

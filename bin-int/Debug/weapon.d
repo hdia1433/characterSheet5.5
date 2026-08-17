@@ -913,7 +913,8 @@ bin-int/Debug/weapon.o: \
   src/model/weapon.cpp src/headers/weapon.hpp src/headers/equipment.hpp \
   src/enums/equipmentType.hpp src/headers/money.hpp src/headers/dice.hpp \
   src/enums/damageType.hpp src/enums/weaponProperties.hpp \
-  src/enums/masteryProperties.hpp src/headers/range.hpp
+  src/enums/masteryProperties.hpp src/headers/range.hpp \
+  src/enums/weaponTypes.hpp
 /opt/homebrew/include/SFML/Graphics.hpp:
 /opt/homebrew/include/SFML/Graphics/BlendMode.hpp:
 /opt/homebrew/include/SFML/Graphics/Export.hpp:
@@ -1834,3 +1835,4 @@ src/enums/damageType.hpp:
 src/enums/weaponProperties.hpp:
 src/enums/masteryProperties.hpp:
 src/headers/range.hpp:
+src/enums/weaponTypes.hpp:

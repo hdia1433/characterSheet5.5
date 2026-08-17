@@ -25,7 +25,7 @@ ClassCreator::ClassCreator(const ClassName& className):
                 Skill::Perception,
                 Skill::Survival
             };
-            weaponProficiencies = WeaponType::Simple | WeaponType::Martial;
+            weaponProficiencies = WeaponType::SimpleMelee | WeaponType::MartialMelee;
             armourTraining = ArmourType::Light | ArmourType::Medium | ArmourType::Shields;
 
             equipmentOption = 
@@ -62,7 +62,7 @@ ClassCreator::ClassCreator(const ClassName& className):
                 Skill::Stealth,
                 Skill::Survival
             };
-            weaponProficiencies = WeaponType::Simple;
+            weaponProficiencies = WeaponType::SimpleMelee;
             toolProficiencyOptions =
             {
                 ToolType::Bagpipes,
@@ -114,6 +114,26 @@ ClassCreator::ClassCreator(const ClassName& className):
                 Skill::Persuasion,
                 Skill::Religion
             };
+            weaponProficiencies = WeaponType::SimpleMelee;
+            armourTraining = ArmourType::Light | ArmourType::Medium | ArmourType::Shields;
+            equipmentOption = 
+            {
+                chainShirt(),
+                shield(),
+                mace(),
+                priestsPack()
+            };
+            additionEquipmentOptions = "Any holy symbol";
+
+            gearOptions = 
+            {
+                amulet(),
+                emblem(),
+                reliquary()
+            };
+
+            moneyOption1 = {7, CoinType::Gold};
+            moneyOption2 = {110, CoinType::Gold};
             break;
     }
 }
@@ -326,9 +346,8 @@ void ClassCreator::render(int maxLevel)
 
                 ImGui::EndCombo();
             }
+            ImGui::Separator();
         }
-
-        ImGui::Separator();
 
          ImGui::Text("Armour Training: %s", armourTypeToString(armourTraining).c_str());
 
@@ -371,6 +390,29 @@ void ClassCreator::render(int maxLevel)
                     {
                         toolSelection = i;
                         tool = toolOptions[i];
+                    }
+
+                    if(isSelected)
+                    {
+                        ImGui::SetItemDefaultFocus();
+                    }
+                }
+
+                ImGui::EndCombo();
+            }
+        }
+        else if(0 == equipmentSelection && ClassName::Cleric == className)
+        {
+            if(ImGui::BeginCombo("##gear", gearOptions[gearSelection]->getName().c_str()))
+            {
+                for(int i = 0; i < gearOptions.size(); i++)
+                {
+                    const bool isSelected = i == gearSelection;
+
+                    if(ImGui::Selectable(gearOptions[i]->getName().c_str(), isSelected))
+                    {
+                        gearSelection = i;
+                        gear = gearOptions[i];
                     }
 
                     if(isSelected)

@@ -5,7 +5,7 @@
 class AdventuringGear:public Equipment
 {
 public:
-    AdventuringGear(const std::string& name, const std::string& description, int amount, const EquipmentType& type, float weight, const Money& cost);
+    AdventuringGear(const std::string& name, const std::string& description, int amount, float weight, const Money& cost);
 };
 
 AdventuringGear* backpack(int amount = 1);
@@ -20,3 +20,10 @@ AdventuringGear* bell(int amount = 1);
 AdventuringGear* bullseyeLantern(int amount = 1);
 AdventuringGear* costume(int amount = 1);
 AdventuringGear* mirror(int amount = 1);
+AdventuringGear* blanket(int amount = 1);
+AdventuringGear* holyWater(int amount = 1);
+AdventuringGear* lamp(int amount = 1);
+AdventuringGear* robe(int amount = 1);
+AdventuringGear* amulet(int amount = 1);
+AdventuringGear* emblem(int amount = 1);
+AdventuringGear* reliquary(int amount = 1);

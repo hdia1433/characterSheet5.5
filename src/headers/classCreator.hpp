@@ -8,6 +8,7 @@
 #include "equipment.hpp"
 #include "toolType.hpp"
 #include "tool.hpp"
+#include "adventuringGear.hpp"
 
 class ClassCreator
 {
@@ -37,6 +38,9 @@ private:
     std::vector<Tool*> toolOptions;
     int toolSelection;
     Tool* tool;
+    std::vector<AdventuringGear*> gearOptions;
+    int gearSelection;
+    AdventuringGear* gear;
     std::vector<Equipment*> classEquipment;
 
     Money moneyOption1;
