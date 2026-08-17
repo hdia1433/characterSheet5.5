@@ -100,3 +100,18 @@ AdventuringGear* reliquary(int amount)
 {
     return new AdventuringGear("Reliquary", "A Reliquary is a Holy Symbol that is bejeweled or painted to channel divine magic. A Cleric or Paladin can use this item as a Spellcasting Focus. Reliquaries must be held.", amount, 2, {5, CoinType::Gold});
 }
+
+AdventuringGear* caltrops(int amount)
+{
+    return new AdventuringGear("Caltrops", "As a Utilize action, you can spread Caltrops from their bag to cover a 5-foot-square area within 5 feet of yourself. A creature that enters this area for the first time on a turn must succeed on a DC 15 Dexterity saving throw or take 1 Piercing damage and have its Speed reduced to 0 until the start of its next turn. It takes 10 minutes to recover the Caltrops.", amount, 2, {1, CoinType::Gold});
+}
+
+AdventuringGear* crowbar(int amount)
+{
+    return new AdventuringGear("Crowbar", "Using a Crowbar gives you Advantage on Strength checks where the Crowbar’s leverage can be applied.", amount, 5, {2, CoinType::Gold});
+}
+
+AdventuringGear* quiver(int amount)
+{
+    return new AdventuringGear("Quiver", "A Quiver holds up to 20 Arrows.", amount, 1, {1, CoinType::Gold});
+}

@@ -14,3 +14,4 @@ public:
 EquipmentPack* explorersPack(int amount = 1);
 EquipmentPack* entertainersPack(int amount = 1);
 EquipmentPack* priestsPack(int amount = 1);
+EquipmentPack* dungeoneersPack(int amount = 1);

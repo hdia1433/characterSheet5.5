@@ -6,5 +6,6 @@ enum class EquipmentType
     Armour,
     EquipmentPack,
     AdventuringGear,
-    Tool
+    Tool,
+    Ammunition
 };

@@ -27,3 +27,6 @@ AdventuringGear* robe(int amount = 1);
 AdventuringGear* amulet(int amount = 1);
 AdventuringGear* emblem(int amount = 1);
 AdventuringGear* reliquary(int amount = 1);
+AdventuringGear* caltrops(int amount = 1);
+AdventuringGear* crowbar(int amount = 1);
+AdventuringGear* quiver(int amount = 1);

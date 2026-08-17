@@ -2,6 +2,7 @@
 #include "weapon.hpp"
 #include "equipmentPack.hpp"
 #include "armour.hpp"
+#include "ammunition.hpp"
 
 ClassCreator::ClassCreator(const ClassName& className):
     level(1),
@@ -28,7 +29,7 @@ ClassCreator::ClassCreator(const ClassName& className):
             weaponProficiencies = WeaponType::SimpleMelee | WeaponType::MartialMelee | WeaponType::SimpleRanged | WeaponType::MartialRanged;
             armourTraining = ArmourType::Light | ArmourType::Medium | ArmourType::Shields;
 
-            equipmentOption = 
+            equipmentOption1 = 
             {
                 greataxe(1),
                 handaxe(4),
@@ -77,7 +78,7 @@ ClassCreator::ClassCreator(const ClassName& className):
                 ToolType::Viol
             };
             armourTraining = ArmourType::Light;
-            equipmentOption = 
+            equipmentOption1 = 
             {
                 leather(),
                 dagger(2),
@@ -116,7 +117,7 @@ ClassCreator::ClassCreator(const ClassName& className):
             };
             weaponProficiencies = WeaponType::SimpleMelee | WeaponType::SimpleRanged;
             armourTraining = ArmourType::Light | ArmourType::Medium | ArmourType::Shields;
-            equipmentOption = 
+            equipmentOption1 = 
             {
                 chainShirt(),
                 shield(),
@@ -153,7 +154,7 @@ ClassCreator::ClassCreator(const ClassName& className):
             weaponProficiencies = WeaponType::SimpleMelee | WeaponType::SimpleRanged;
             toolProficiencies = ToolType::HerbalismKit;
             armourTraining = ArmourType::Light | ArmourType::Shields;
-            equipmentOption =
+            equipmentOption1 =
             {
                 leather(),
                 shield(),
@@ -164,6 +165,50 @@ ClassCreator::ClassCreator(const ClassName& className):
             };
             moneyOption1 = {9, CoinType::Gold};
             moneyOption2 = {50, CoinType::Gold};
+            break;
+        case ClassName::Fighter:
+            abilityOptions =
+            {
+                Ability::Strength,
+                Ability::Dexterity
+            };
+            hitDie = 10;
+            savingThrowProficiencies = Ability::Strength | Ability::Constitution;
+            skillOptions =
+            {
+                Skill::Acrobatics,
+                Skill::AnimalHandling,
+                Skill::Athletics,
+                Skill::History,
+                Skill::Insight,
+                Skill::Intimidation,
+                Skill::Persuasion,
+                Skill::Perception,
+                Skill::Survival
+            };
+            weaponProficiencies = WeaponType::Simple | WeaponType::Martial;
+            armourTraining = ArmourType::Light | ArmourType::Medium | ArmourType::Heavy | ArmourType::Shields;
+            equipmentOption1 =
+            {
+                chainMail(),
+                greatsword(),
+                flail(),
+                javelin(8),
+                dungeoneersPack()
+            };
+            equipmentOption2 =
+            {
+                studdedLeather(),
+                scimitar(),
+                shortsword(),
+                longbow(),
+                arrow(20),
+                quiver(),
+                dungeoneersPack()
+            };
+            moneyOption1 = {4, CoinType::Gold};
+            moneyOption2 = {11, CoinType::Gold};
+            moneyOption3 = {155, CoinType::Gold};
             break;
     }
 }
@@ -206,7 +251,33 @@ void ClassCreator::render(int maxLevel)
         }
 
         ImGui::Separator();
-        ImGui::TextWrapped("Primary Ability: %s", abilityToString(primaryAbilities).c_str());
+        if(!abilityOptions.empty())
+        {
+            ImGui::Text("Primary Ability:");
+
+            if(ImGui::BeginCombo("##ability", abilityToString(primaryAbilities).c_str()))
+            {
+                for(int i = 0; i < abilityOptions.size(); i++)
+                {
+                    const bool isSelected = abilityOptions[i] == primaryAbilities;
+
+                    if(ImGui::Selectable(abilityToString(abilityOptions[i]).c_str(), isSelected))
+                    {
+                        primaryAbilities = abilityOptions[i];
+                    }
+
+                    if(isSelected)
+                    {
+                        ImGui::SetItemDefaultFocus();
+                    }
+                }
+                ImGui::EndCombo();
+            }
+        }
+        else
+        {
+            ImGui::TextWrapped("Primary Ability: %s", abilityToString(primaryAbilities).c_str());
+        }
         ImGui::Separator();
         ImGui::Text("Hit Die: %dD%d", level, hitDie);
         ImGui::Separator();
@@ -387,31 +458,63 @@ void ClassCreator::render(int maxLevel)
 
          ImGui::TextWrapped("Armour Training: %s", armourTypeToString(armourTraining).c_str());
 
-         std::string equipmentStr = "";
+         std::string equipmentStr1 = "";
 
-        for(Equipment* equipment: equipmentOption)
+        for(Equipment* equipment: equipmentOption1)
         {
-            equipmentStr += equipment->getName() + ", ";
+            equipmentStr1 += equipment->getName() + ", ";
         }
 
         if(!additionEquipmentOptions.empty())
         {
-            equipmentStr += ", " + additionEquipmentOptions;
+            equipmentStr1 += ", " + additionEquipmentOptions;
         }
 
-        equipmentStr += moneyOption1.toString();
+        equipmentStr1 += moneyOption1.toString();
 
         ImGui::Separator();
-        ImGui::TextWrapped("Starting Equipment: (A) %s; (B) %s", equipmentStr.c_str(), moneyOption2.toString().c_str());
-        if(ImGui::RadioButton("(A)", &equipmentSelection, 0))
+        if(equipmentOption2.empty())
         {
-            classEquipment = equipmentOption;
-            classMoney = moneyOption1;
+            ImGui::TextWrapped("Starting Equipment: (A) %s; (B) %s", equipmentStr1.c_str(), moneyOption2.toString().c_str());
+
+            if(ImGui::RadioButton("(A)", &equipmentSelection, 0))
+            {
+                classEquipment = equipmentOption1;
+                classMoney = moneyOption1;
+            }
+            if(ImGui::RadioButton("(B)", &equipmentSelection, 1))
+            {
+                classEquipment.clear();
+                classMoney = moneyOption2;
+            }
         }
-        if(ImGui::RadioButton("(B)", &equipmentSelection, 1))
+        else
         {
-            classEquipment.clear();
-            classMoney = moneyOption2;
+            std::string equipmentStr2 = "";
+
+            for(Equipment* equipment: equipmentOption2)
+            {
+                equipmentStr2 += equipment->getName() + ", ";
+            }
+            equipmentStr2 += moneyOption2.toString();
+
+            ImGui::TextWrapped("Starting Equipment: (A) %s; (B) %s; (C) %s", equipmentStr1.c_str(), equipmentStr2.c_str(), moneyOption3.toString().c_str());
+
+            if(ImGui::RadioButton("(A)", &equipmentSelection, 0))
+            {
+                classEquipment = equipmentOption1;
+                classMoney = moneyOption1;
+            }
+            if(ImGui::RadioButton("(B)", &equipmentSelection, 1))
+            {
+                classEquipment = equipmentOption2;
+                classMoney = moneyOption2;
+            }
+            if(ImGui::RadioButton("(C)", &equipmentSelection, 2))
+            {
+                classEquipment.clear();
+                classMoney = moneyOption3;
+            }
         }
 
         if(equipmentSelection == 0 && className == ClassName::Bard)

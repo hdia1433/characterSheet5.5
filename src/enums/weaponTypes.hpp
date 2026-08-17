@@ -6,7 +6,9 @@ enum class WeaponType:std::uint8_t
     SimpleMelee = 1 << 0,
     MartialMelee = 1 << 1,
     SimpleRanged = 1 << 2,
-    MartialRanged = 1 << 3
+    MartialRanged = 1 << 3,
+    Simple = (1 << 0) | (1 << 2),
+    Martial = (1 << 1) | (1 << 3)
 };
 
 inline WeaponType operator|(WeaponType lhs, WeaponType rhs)

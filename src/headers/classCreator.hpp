@@ -17,6 +17,7 @@ private:
     ClassName className;
     bool wantsRemoval;
 
+    std::vector<Ability> abilityOptions;
     Ability primaryAbilities;
     int hitDie;
     Ability savingThrowProficiencies;
@@ -34,7 +35,8 @@ private:
     ArmourType armourTraining;
 
     int equipmentSelection;
-    std::vector<Equipment*> equipmentOption;
+    std::vector<Equipment*> equipmentOption1;
+    std::vector<Equipment*> equipmentOption2;
     std::string additionEquipmentOptions;
     std::vector<Tool*> toolOptions;
     int toolSelection;
@@ -46,6 +48,7 @@ private:
 
     Money moneyOption1;
     Money moneyOption2;
+    Money moneyOption3;
     Money classMoney;
 
 public:
