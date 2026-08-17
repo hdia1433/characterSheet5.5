@@ -15,6 +15,7 @@ class ClassCreator
 private:
     int level;
     ClassName className;
+    bool wantsRemoval;
 
     Ability primaryAbilities;
     int hitDie;
@@ -53,5 +54,8 @@ public:
 
     void render(int maxLevel);
 
-    int& getLevel();
+    const int& getLevel() const;
+    const bool& getWantsRemoval() const;
+
+    void cancelRemoval();
 };

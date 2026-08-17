@@ -25,7 +25,7 @@ ClassCreator::ClassCreator(const ClassName& className):
                 Skill::Perception,
                 Skill::Survival
             };
-            weaponProficiencies = WeaponType::SimpleMelee | WeaponType::MartialMelee;
+            weaponProficiencies = WeaponType::SimpleMelee | WeaponType::MartialMelee | WeaponType::SimpleRanged | WeaponType::MartialRanged;
             armourTraining = ArmourType::Light | ArmourType::Medium | ArmourType::Shields;
 
             equipmentOption = 
@@ -62,7 +62,7 @@ ClassCreator::ClassCreator(const ClassName& className):
                 Skill::Stealth,
                 Skill::Survival
             };
-            weaponProficiencies = WeaponType::SimpleMelee;
+            weaponProficiencies = WeaponType::SimpleMelee | WeaponType::SimpleRanged;
             toolProficiencyOptions =
             {
                 ToolType::Bagpipes,
@@ -114,7 +114,7 @@ ClassCreator::ClassCreator(const ClassName& className):
                 Skill::Persuasion,
                 Skill::Religion
             };
-            weaponProficiencies = WeaponType::SimpleMelee;
+            weaponProficiencies = WeaponType::SimpleMelee | WeaponType::SimpleRanged;
             armourTraining = ArmourType::Light | ArmourType::Medium | ArmourType::Shields;
             equipmentOption = 
             {
@@ -134,6 +134,36 @@ ClassCreator::ClassCreator(const ClassName& className):
 
             moneyOption1 = {7, CoinType::Gold};
             moneyOption2 = {110, CoinType::Gold};
+            break;
+        case ClassName::Druid:
+            primaryAbilities = Ability::Wisdom;
+            hitDie = 8;
+            savingThrowProficiencies = Ability::Intelligence | Ability::Wisdom;
+            skillOptions =
+            {
+                Skill::AnimalHandling,
+                Skill::Arcana,
+                Skill::Insight,
+                Skill::Medicine,
+                Skill::Nature,
+                Skill::Perception,
+                Skill::Religion,
+                Skill::Survival
+            };
+            weaponProficiencies = WeaponType::SimpleMelee | WeaponType::SimpleRanged;
+            toolProficiencies = ToolType::HerbalismKit;
+            armourTraining = ArmourType::Light | ArmourType::Shields;
+            equipmentOption =
+            {
+                leather(),
+                shield(),
+                sickle(),
+                quarterstaff(),
+                explorersPack(),
+                herbalismKit()
+            };
+            moneyOption1 = {9, CoinType::Gold};
+            moneyOption2 = {50, CoinType::Gold};
             break;
     }
 }
@@ -176,11 +206,11 @@ void ClassCreator::render(int maxLevel)
         }
 
         ImGui::Separator();
-        ImGui::Text("Primary Ability: %s", abilityToString(primaryAbilities).c_str());
+        ImGui::TextWrapped("Primary Ability: %s", abilityToString(primaryAbilities).c_str());
         ImGui::Separator();
         ImGui::Text("Hit Die: %dD%d", level, hitDie);
         ImGui::Separator();
-        ImGui::Text("Saving Throw Proficiencies: %s", abilityToString(savingThrowProficiencies).c_str());
+        ImGui::TextWrapped("Saving Throw Proficiencies: %s", abilityToString(savingThrowProficiencies).c_str());
         ImGui::Separator();
         int skillNum = className == ClassName::Bard ? 3 : 2;
         ImGui::Text("Skill Proficinecies (choose %d):", skillNum);
@@ -265,7 +295,7 @@ void ClassCreator::render(int maxLevel)
         }
 
          ImGui::Separator();
-         ImGui::Text("Weapon Proficiencies: %s", weaponTypeToString(weaponProficiencies).c_str());
+         ImGui::TextWrapped("Weapon Proficiencies: %s", weaponTypeToString(weaponProficiencies).c_str());
          ImGui::Separator();
 
         if(!toolProficiencyOptions.empty())
@@ -348,8 +378,14 @@ void ClassCreator::render(int maxLevel)
             }
             ImGui::Separator();
         }
+        else if (toolProficiencies != ToolType::None)
+        {
+            ImGui::TextWrapped("Tool Proficinecies: %s", toolTypeToString(toolProficiencies).c_str());
 
-         ImGui::Text("Armour Training: %s", armourTypeToString(armourTraining).c_str());
+            ImGui::Separator();
+        }
+
+         ImGui::TextWrapped("Armour Training: %s", armourTypeToString(armourTraining).c_str());
 
          std::string equipmentStr = "";
 
@@ -366,7 +402,7 @@ void ClassCreator::render(int maxLevel)
         equipmentStr += moneyOption1.toString();
 
         ImGui::Separator();
-        ImGui::Text("Starting Equipment: (A) %s; (B) %s", equipmentStr.c_str(), moneyOption2.toString().c_str());
+        ImGui::TextWrapped("Starting Equipment: (A) %s; (B) %s", equipmentStr.c_str(), moneyOption2.toString().c_str());
         if(ImGui::RadioButton("(A)", &equipmentSelection, 0))
         {
             classEquipment = equipmentOption;
@@ -380,6 +416,7 @@ void ClassCreator::render(int maxLevel)
 
         if(equipmentSelection == 0 && className == ClassName::Bard)
         {
+            ImGui::Text("Tool:");
             if(ImGui::BeginCombo("##ToolOp", toolOptions[toolSelection]->getName().c_str()))
             {
                 for(int i = 0; i < toolOptions.size(); i++)
@@ -403,6 +440,7 @@ void ClassCreator::render(int maxLevel)
         }
         else if(0 == equipmentSelection && ClassName::Cleric == className)
         {
+            ImGui::Text("Gear:");
             if(ImGui::BeginCombo("##gear", gearOptions[gearSelection]->getName().c_str()))
             {
                 for(int i = 0; i < gearOptions.size(); i++)
@@ -425,11 +463,25 @@ void ClassCreator::render(int maxLevel)
             }
         }
 
+        if(ImGui::Button("Remove Class"))
+        {
+            wantsRemoval = true;
+        }
          ImGui::PopID();
     }
 }
 
-int& ClassCreator::getLevel()
+const int& ClassCreator::getLevel() const
 {
     return level;
+}
+
+const bool& ClassCreator::getWantsRemoval() const
+{
+    return wantsRemoval;
+}
+
+void ClassCreator::cancelRemoval()
+{
+    wantsRemoval = false;
 }

@@ -12,7 +12,8 @@ enum class ToolType:uint16_t
     Lyre = 1 << 6,
     PanFlute = 1 << 7,
     Shawm = 1 << 8,
-    Viol = 1 << 9
+    Viol = 1 << 9,
+    HerbalismKit = 1 << 10
 };
 
 inline ToolType operator|(ToolType lhs, ToolType rhs)
@@ -78,6 +79,10 @@ inline std::string toolTypeToString(const ToolType& toolType)
     if(hasToolType(toolType, ToolType::Viol))
     {
         str += "Viol, ";
+    }
+    if(hasToolType(toolType, ToolType::HerbalismKit))
+    {
+        str += "Herbalism Kit, ";
     }
 
     str = str.substr(0, str.size() - 2);

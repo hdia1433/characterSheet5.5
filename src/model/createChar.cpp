@@ -134,6 +134,7 @@ void CreateChar::render()
             {
                 removePopup = false;
                 Globals::popupOpen = false;
+                chosenClasses.at(classToRemove).cancelRemoval();
             }
         }
         ImGui::End();
@@ -151,18 +152,23 @@ void CreateChar::classSection()
     }
 
     ImGui::BeginDisabled(totalLevels == 20);
-
     if(ImGui::Button("Add Class"))
     {
         classPopup = true;
         Globals::popupOpen = true;
     }
-
     ImGui::EndDisabled();
 
-    for(auto& [_, classCreator]: chosenClasses)
+    for(auto& [className, classCreator]: chosenClasses)
     {
         classCreator.render(20 - totalLevels + classCreator.getLevel());
+
+        if(classCreator.getWantsRemoval())
+        {
+            classToRemove = className;
+            removePopup = true;
+            Globals::popupOpen = true;
+        }
     }
 }
 
