@@ -28,6 +28,13 @@ inline Skill operator|(Skill lhs, Skill rhs)
     return (Skill)(static_cast<std::underlying_type_t<Skill>>(lhs) | static_cast<std::underlying_type_t<Skill>>(rhs));
 }
 
+inline Skill& operator|=(Skill& lhs, const Skill& rhs)
+{
+    lhs = lhs | rhs;
+
+    return lhs;
+}
+
 
 inline Skill operator&(Skill lhs, Skill rhs)
 {

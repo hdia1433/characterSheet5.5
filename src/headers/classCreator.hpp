@@ -21,6 +21,7 @@ private:
     std::vector<Skill> skillOptions;
     Skill skillSelection1;
     Skill skillSelection2;
+    Skill skillSelection3;
     Skill skillProficiencies;
     WeaponType weaponProficiencies;
     std::vector<ToolType> toolProficiencyOptions;

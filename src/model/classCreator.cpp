@@ -40,6 +40,7 @@ ClassCreator::ClassCreator(const ClassName& className):
         case ClassName::Bard:
             primaryAbilities = Ability::Charisma;
             hitDie = 6;
+            savingThrowProficiencies = Ability::Dexterity | Ability::Charisma;
             skillOptions = 
             {
                 Skill::Acrobatics,
@@ -101,6 +102,19 @@ ClassCreator::ClassCreator(const ClassName& className):
             moneyOption1 = Money{19, CoinType::Gold};
             moneyOption2 = Money{90, CoinType::Gold};
             break;
+        case ClassName::Cleric:
+            primaryAbilities = Ability::Wisdom;
+            hitDie = 8;
+            savingThrowProficiencies = Ability::Wisdom | Ability::Charisma;
+            skillOptions = 
+            {
+                Skill::History,
+                Skill::Insight,
+                Skill::Medicine,
+                Skill::Persuasion,
+                Skill::Religion
+            };
+            break;
     }
 }
 
@@ -141,7 +155,6 @@ void ClassCreator::render(int maxLevel)
             ImGui::EndCombo();
         }
 
-        
         ImGui::Separator();
         ImGui::Text("Primary Ability: %s", abilityToString(primaryAbilities).c_str());
         ImGui::Separator();
@@ -149,13 +162,14 @@ void ClassCreator::render(int maxLevel)
         ImGui::Separator();
         ImGui::Text("Saving Throw Proficiencies: %s", abilityToString(savingThrowProficiencies).c_str());
         ImGui::Separator();
-        ImGui::Text("Skill Proficinecies (choose 2):");
+        int skillNum = className == ClassName::Bard ? 3 : 2;
+        ImGui::Text("Skill Proficinecies (choose %d):", skillNum);
 
         if(ImGui::BeginCombo("##Skill 1", skillToString(skillSelection1).c_str()))
         {
             for(int i = 0; i < skillOptions.size(); i++)
             {
-                if(skillOptions[i] == skillSelection2)
+                if((skillOptions[i] == skillSelection2) | (skillNum > 2 && skillOptions[i] == skillSelection3))
                 {
                     continue;
                 }
@@ -166,6 +180,10 @@ void ClassCreator::render(int maxLevel)
                 {
                     skillSelection1 = skillOptions[i];
                     skillProficiencies = skillSelection1 | skillSelection2;
+                    if(skillNum > 2)
+                    {
+                        skillProficiencies |= skillSelection3;
+                    }
                 }
 
                 if(isSelected)
@@ -181,7 +199,7 @@ void ClassCreator::render(int maxLevel)
          {
              for(int i = 0; i < skillOptions.size(); i++)
              {
-                 if(skillOptions[i] == skillSelection1)
+                 if((skillOptions[i] == skillSelection1) | (skillNum > 2 && skillOptions[i] == skillSelection3))
                  {
                      continue;
                  }
@@ -192,6 +210,10 @@ void ClassCreator::render(int maxLevel)
                  {
                     skillSelection2 = skillOptions[i];
                     skillProficiencies = skillSelection1 | skillSelection2;
+                    if(skillNum > 2)
+                    {
+                        skillProficiencies |= skillSelection3;
+                    }
                  }
 
                  if(isSelected)
@@ -202,6 +224,25 @@ void ClassCreator::render(int maxLevel)
 
              ImGui::EndCombo();
          }
+
+        if(skillNum > 2 && ImGui::BeginCombo("##Skill 3", skillToString(skillSelection3).c_str()))
+        {
+            for(int i = 0; i < skillOptions.size(); i++)
+            {
+                if(skillOptions[i] == skillSelection1 | skillOptions[i] == skillSelection2)
+                {
+                    continue;
+                }
+
+                const bool isSelected = skillOptions[i] == skillSelection2;
+
+                if(ImGui::Selectable(skillToString(skillOptions[i]).c_str()), isSelected)
+                {
+                    skillSelection3 = skillOptions[i];
+                    skillProficiencies = skillSelection1 | skillSelection2 | skillSelection3;
+                }
+            }
+        }
 
          ImGui::Separator();
          ImGui::Text("Weapon Proficiencies: %s", weaponTypeToString(weaponProficiencies).c_str());
